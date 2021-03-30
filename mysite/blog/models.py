@@ -49,3 +49,7 @@ class Post(models.Model):
             self.publish.month, 
             self.publish.day, 
             self.slug])
+    def has_image(self):
+        if(self.image != None or self.image != ''):
+            return True
+        return False

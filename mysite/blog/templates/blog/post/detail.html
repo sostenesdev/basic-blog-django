@@ -1,6 +1,15 @@
 {% extends "blog/base.html" %} 
     {% block title %}{{ post.title }}{% endblock %} 
     {% block content %} 
-        <h1>{{ post.title }}</h1> <p class="date"> Publicado em {{ post.publish }} by {{ post.author }} </p> 
-        {{ post.body|safe }}
+        {% if post.has_image %}
+        <div class="col-12 text-center">
+            <img src="{{post.image.url}}" height="200" />
+        </div>
+        {% endif %}
+        <div class="col-12 text-center">
+            <h1>{{ post.title }}</h1> <p class="date"> Publicado em {{ post.publish }} by {{ post.author }} </p> 
+        </div>
+        <div class="col-12">
+            {{ post.body|safe }}
+        </div>
     {% endblock %}
